@@ -1,0 +1,12 @@
+<!-- don't use this template, it's just something to extend from -->
+<html>
+  <body>
+    <ul>
+      {% for message in messages %}
+        <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>

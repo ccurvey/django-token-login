@@ -109,3 +109,9 @@ STATIC_URL = '/static/'
 
 # DCU additions
 AUTH_USER_MODEL = "security.CustomUser"
+AUTHENTICATION_BACKENDS = (
+    'security.backends.TokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LOGIN_REDIRECT_URL="/security/hello"
