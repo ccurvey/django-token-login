@@ -30,6 +30,7 @@ class LoginTestCase(TestCase):
             "/security/login_with_token/{}/".format(c2.login_token),
             follow=True)
         assert response.content.find("Hello World!") > -1
+        assert response.content.find("very wrong") == -1
         c3 = CustomUser.objects.get(email="good@example.com")
         assert c3.login_token is None
         

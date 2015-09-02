@@ -54,6 +54,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     login_token = models.CharField(max_length=40, null=True, blank=True)
     login_token_expires = models.DateTimeField(null=True, blank=True)
+    
+    secret_token = models.CharField(max_length=40, null=True, blank=True)
 
     objects = CustomUserManager()
 
