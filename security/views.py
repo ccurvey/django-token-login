@@ -28,7 +28,7 @@ def send_login_token(request):
         if form.is_valid():
             try:
                 user = UserModel.objects.get(email=form.cleaned_data['email'])
-            except UserModel.DoesNotExists:
+            except UserModel.DoesNotExist:
                 messages.warn(request, "No such user")
                 return redirect(reverse("security.views.send_login_token"))
             
@@ -47,7 +47,7 @@ def send_login_token(request):
                       from_email="noreply", recipient_list=[user.email,])
             
             messages.success(request, "login token sent to your email")
-            return redirect("/")
+            return redirect(reverse("security.views.send_login_token"))
     else:
         form = LoginTokenRequestForm()
 
